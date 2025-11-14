@@ -9,3 +9,19 @@
   flex-direction: column;
   gap: $space-sm;
 }
+
+.sortPanel {
+  margin-bottom: $space-sm;
+  display: flex;
+  gap: $space-xs;
+
+  button {
+    @include btn-base;
+    padding: 4px 10px;
+    background-color: $btn-bg;
+
+    &:hover {
+      background-color: darken($btn-bg, 5%);
+    }
+  }
+}

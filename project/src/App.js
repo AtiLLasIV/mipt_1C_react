@@ -10,10 +10,29 @@ function App() {
     getArticles().then(setArticles);
   }, []);
 
+  const sortByDate = () => {
+    setArticles(prev =>
+      [...prev].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+    );
+  };
+
+  const sortByLikes = () => {
+    setArticles(prev =>
+      [...prev].sort((a, b) => b.currentLikes - a.currentLikes)
+    );
+  };
+
   return (
     <div className={styles.wrapper}>
-      {articles.map((post, id) => (
-        <Card key={id} post={post} />
+      <div className={styles.sortPanel}>
+        <button onClick={sortByDate}>Sort by date</button>
+        <button onClick={sortByLikes}>Sort by likes</button>
+      </div>
+
+      {articles.map(post => (
+        <Card key={post.articleId} post={post} />
       ))}
     </div>
   );
