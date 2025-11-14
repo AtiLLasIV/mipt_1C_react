@@ -1,6 +1,9 @@
 import {useState, useEffect} from "react";
 import {getComments} from "../helpers/get-comments-by-article";
 import styles from "./Card.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 export default function Card({post}) {
   const [liked, setLiked] = useState(false);
@@ -62,7 +65,10 @@ export default function Card({post}) {
 
       <div className={styles.likeInfo}>
         <button
-          className={liked ? styles.likedBtn : styles.noLikedBtn}
+          className={cx({
+            likedBtn: liked,
+            noLikedBtn: !liked,
+          })}
           onClick={toggleLike}>
           Like
         </button>
@@ -71,7 +77,12 @@ export default function Card({post}) {
       </div>
 
       <div className={styles.commentsSection}>
-        <button className={styles.commentsBtn} onClick={toggleComments}>
+        <button
+          className={cx({
+            commentsBtn: !commentsOpen,
+            commentsBtnOpen: commentsOpen,
+          })}
+          onClick={toggleComments}>
           {commentsOpen ? "Hide comments" : "Open comments"}
         </button>
 

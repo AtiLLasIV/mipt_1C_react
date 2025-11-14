@@ -11,6 +11,11 @@
   cursor: pointer;
 }
 
+@mixin text-base {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+}
+
 @mixin text-small {
   font-size: 14px;
 }

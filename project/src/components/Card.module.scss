@@ -4,6 +4,17 @@
 .card {
   @include card-base;
 
+  h2 {
+    @include text-base;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  p {
+    @include text-base;
+    margin-bottom: 8px;
+  }
+
   .likeInfo {
     display: flex;
     align-items: center;
@@ -31,6 +42,12 @@
       @include btn-base;
       height: 30px;
       background-color: lighten($btn-bg, 5%);
+    }
+
+    .commentsBtnOpen {
+      @include btn-base;
+      height: 30px;
+      background-color: darken($btn-bg, 5%);
     }
   }
 
