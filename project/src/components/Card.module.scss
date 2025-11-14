@@ -112,14 +112,18 @@
 
     .sortButtons {
       display: flex;
-      gap: $space-xs;
-      margin-bottom: $space-xs;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
 
-      button {
-        @include btn-base;
-        padding: 4px 8px;
-        background-color: lighten($btn-bg, 8%);
-      }
+    .sortBtn {
+      @include btn-base;
+      padding: 6px 12px;
+      background-color: lighten($btn-bg, 8%);
+    }
+
+    .activeSortBtn {
+      background-color: $btn-liked-bg;
     }
 
     .commentItem {

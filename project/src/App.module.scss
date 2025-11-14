@@ -15,7 +15,7 @@
   display: flex;
   gap: $space-xs;
 
-  button {
+  .sortBtn {
     @include btn-base;
     padding: 4px 10px;
     background-color: $btn-bg;
@@ -23,5 +23,9 @@
     &:hover {
       background-color: darken($btn-bg, 5%);
     }
+  }
+
+  .sortBtnActive {
+    background-color: $btn-liked-bg;
   }
 }

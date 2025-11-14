@@ -23,6 +23,8 @@ export default function Card({post}) {
   const [editIndex, setEditIndex] = useState(null);
   const [editCommentText, setEditCommentText] = useState("");
 
+  const [commentsSort, setCommentsSort] = useState(null);
+
   const toggleLike = () => {
     setLiked((prev) => !prev);
     setLikesCount((c) => (liked ? c - 1 : c + 1));
@@ -85,6 +87,7 @@ export default function Card({post}) {
   const deleteComment = (idx) => {
     post.commentsCount -= 1;
     setComments((prev) => prev.filter((_, i) => i !== idx));
+
     if (editIndex === idx) {
       setEditIndex(null);
       setEditCommentText("");
@@ -109,10 +112,12 @@ export default function Card({post}) {
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       )
     );
+    setCommentsSort("date");
   };
 
   const sortCommentsByLikes = () => {
     setComments((prev) => [...prev].sort((a, b) => b.likes - a.likes));
+    setCommentsSort("likes");
   };
 
   const commentsCount = commentsOpen ? comments.length : post.commentsCount;
@@ -207,8 +212,24 @@ export default function Card({post}) {
         {commentsOpen && (
           <div className={styles.commentsList}>
             <div className={styles.sortButtons}>
-              <button onClick={sortCommentsByDate}>Sort by date</button>
-              <button onClick={sortCommentsByLikes}>Sort by likes</button>
+              <button
+                onClick={sortCommentsByDate}
+                className={cx({
+                  sortBtn: true,
+                  activeSortBtn: commentsSort === "date",
+                })}
+              >
+                Sort by date
+              </button>
+              <button
+                onClick={sortCommentsByLikes}
+                className={cx({
+                  sortBtn: true,
+                  activeSortBtn: commentsSort === "likes",
+                })}
+              >
+                Sort by likes
+              </button>
             </div>
 
             {comments.length === 0 ? (
