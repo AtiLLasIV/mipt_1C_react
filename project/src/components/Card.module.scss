@@ -1,0 +1,83 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.card {
+  @include card-base;
+
+  .likeInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .noLikedBtn {
+    @include btn-base;
+    height: 30px;
+    width: 60px;
+    background-color: $btn-bg;
+  }
+
+  .likedBtn {
+    @include btn-base;
+    height: 30px;
+    width: 60px;
+    background-color: $btn-liked-bg;
+  }
+
+  .commentsSection {
+    margin-top: $space-sm;
+
+    .commentsBtn {
+      @include btn-base;
+      height: 30px;
+      background-color: lighten($btn-bg, 5%);
+    }
+  }
+
+  .commentsList {
+    margin-top: $space-xs;
+    background-color: $comments-bg;
+    border-radius: $radius-sm;
+    padding: 10px;
+
+    .commentItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $space-xs;
+
+      .deleteBtn {
+        @include btn-base;
+        background-color: $delete-btn-bg;
+        color: white;
+        width: 100px;
+        height: 32px;
+
+        &:hover {
+          background-color: $delete-btn-bg-hover;
+        }
+      }
+    }
+
+    .addComment {
+      display: flex;
+      gap: $space-xs;
+      margin-top: $space-md;
+
+      input {
+        border: none;
+        border-radius: $radius-md;
+        padding: 10px;
+      }
+
+      .addBtn {
+        @include btn-base;
+        background-color: $btn-liked-bg;
+
+        &:hover {
+          background-color: darken($btn-liked-bg, 5%);
+        }
+      }
+    }
+  }
+}

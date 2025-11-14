@@ -1,0 +1,11 @@
+@import "./styles/variables";
+@import "./styles/mixins";
+
+.wrapper {
+  margin: 40px;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}

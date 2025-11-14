@@ -1,0 +1,16 @@
+@mixin card-base {
+  border: 1px solid transparent;
+  border-radius: $radius-lg;
+  padding: 16px;
+  background-color: $card-bg;
+}
+
+@mixin btn-base {
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+}
+
+@mixin text-small {
+  font-size: 14px;
+}

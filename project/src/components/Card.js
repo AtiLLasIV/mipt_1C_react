@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import {getComments} from "../helpers/get-comments-by-article";
-import './Card.css';
+import styles from "./Card.module.scss";
 
 export default function Card({post}) {
   const [liked, setLiked] = useState(false);
@@ -56,13 +56,13 @@ export default function Card({post}) {
   const commentsCount = commentsOpen ? comments.length : post.commentsCount;
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       <h2>{post.title}</h2>
       <p>{post.text}</p>
 
-      <div className="like-info">
+      <div className={styles.likeInfo}>
         <button
-          className={liked ? "liked-btn" : "no-liked-btn"}
+          className={liked ? styles.likedBtn : styles.noLikedBtn}
           onClick={toggleLike}>
           Like
         </button>
@@ -70,23 +70,23 @@ export default function Card({post}) {
         <span>Comments: {commentsCount}</span>
       </div>
 
-      <div className="comments-section">
-        <button className="comments-btn" onClick={toggleComments}>
+      <div className={styles.commentsSection}>
+        <button className={styles.commentsBtn} onClick={toggleComments}>
           {commentsOpen ? "Hide comments" : "Open comments"}
         </button>
 
         {commentsOpen && (
-          <div className="comments-list">
+          <div className={styles.commentsList}>
             {comments.length === 0 ? (
               <p>No comments</p>
             ) : (
               comments.map((item, i) => (
-                <div key={i} className="comment-item">
+                <div key={i} className={styles.commentItem}>
                   <p>
                     <b>{item.author}:</b> {item.text}
                   </p>
                   <button
-                    className="delete-btn"
+                    className={styles.deleteBtn}
                     onClick={() => deleteComment(i)}
                   >
                     Delete
@@ -95,7 +95,7 @@ export default function Card({post}) {
               ))
             )}
 
-            <div className="add-comment">
+            <div className={styles.addComment}>
               <input
                 type="text"
                 placeholder="Author"
@@ -108,7 +108,7 @@ export default function Card({post}) {
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
               />
-              <button className="add-btn" onClick={addComment}>
+              <button className={styles.addBtn} onClick={addComment}>
                 Add
               </button>
             </div>
