@@ -1,0 +1,57 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.wrapper {
+  margin: 40px;
+}
+
+.sortPanel {
+  display: flex;
+  gap: $space-xs;
+  margin-bottom: $space-sm;
+
+  .sortBtn {
+    @include btn-base;
+    padding: 4px 10px;
+    background-color: $btn-bg;
+
+    &:hover {
+      background-color: darken($btn-bg, 5%);
+    }
+  }
+
+  .sortBtnActive {
+    background-color: $btn-liked-bg;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.previewCard {
+  @include card-base;
+  padding: 12px 16px;
+
+  h2 {
+    @include text-base;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  p {
+    @include text-base;
+    margin: 0 0 4px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

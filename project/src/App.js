@@ -1,56 +1,47 @@
-import {useEffect, useState} from "react";
-import {getArticles} from "./helpers/get-articles";
-import Card from "./components/Card";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Routes, Route, Link } from "react-router-dom";
+
+import { getArticles } from "./helpers/get-articles";
+import { ActionTypes } from "./store/constants";
+
+import HomePage from "./pages/home.page";
+import ArticlesPage from "./pages/articles.page";
+import ArticlePage from "./pages/article.page";
+import NotFoundPage from "./pages/notfound.page";
+
 import styles from "./App.module.scss";
 
 function App() {
-  const [articles, setArticles] = useState([]);
-  const [activeSort, setActiveSort] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getArticles().then(setArticles);
-  }, []);
-
-  const sortByDate = () => {
-    setArticles(prev =>
-      [...prev].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      )
-    );
-    setActiveSort("date");
-  };
-
-  const sortByLikes = () => {
-    setArticles(prev =>
-      [...prev].sort((a, b) => b.currentLikes - a.currentLikes)
-    );
-    setActiveSort("likes");
-  };
+    getArticles().then((data) => {
+      dispatch({
+        type: ActionTypes.SET_ARTICLES,
+        payload: data,
+      });
+    });
+  }, [dispatch]);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.sortPanel}>
-        <button
-          onClick={sortByDate}
-          className={`${styles.sortBtn} ${
-            activeSort === "date" ? styles.sortBtnActive : ""
-          }`}>
-          Sort by date
-        </button>
+      <div className={styles.wrapper}>
+        <nav className={styles.nav}>
+          <Link to="/" className={styles.navLink}>
+            Home
+          </Link>
+          <Link to="/articles" className={styles.navLink}>
+            Articles
+          </Link>
+        </nav>
 
-        <button
-          onClick={sortByLikes}
-          className={`${styles.sortBtn} ${
-            activeSort === "likes" ? styles.sortBtnActive : ""
-          }`}>
-          Sort by likes
-        </button>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/articles/:articleId" element={<ArticlePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </div>
-
-      {articles.map(post => (
-        <Card key={post.articleId} post={post} />
-      ))}
-    </div>
   );
 }
 

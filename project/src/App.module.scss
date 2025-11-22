@@ -10,6 +10,23 @@
   gap: $space-sm;
 }
 
+.nav {
+  margin-bottom: $space-sm;
+  display: flex;
+  gap: $space-xs;
+}
+
+.navLink {
+  @include btn-base;
+  padding: 4px 10px;
+  background-color: $btn-bg;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($btn-bg, 5%);
+  }
+}
+
 .sortPanel {
   margin-bottom: $space-sm;
   display: flex;
