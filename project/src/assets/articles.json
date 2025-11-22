@@ -1,0 +1,42 @@
+[
+  {
+    "articleId": 11,
+    "title": "Tesla",
+    "text": "Best company",
+    "currentLikes": 7,
+    "commentsCount": 1,
+    "createdAt": "2025-05-21T10:00:00Z"
+  },
+  {
+    "articleId": 5,
+    "title": "VK",
+    "text": "Messenger for children",
+    "currentLikes": 2,
+    "commentsCount": 2,
+    "createdAt": "2025-01-01T10:00:00Z"
+  },
+  {
+    "articleId": 72,
+    "title": "Me",
+    "text": "Best student",
+    "currentLikes": 999,
+    "commentsCount": 0,
+    "createdAt": "2025-03-01T10:00:00Z"
+  },
+  {
+    "articleId": 33,
+    "title": "Item",
+    "text": "Some other item",
+    "currentLikes": 0,
+    "commentsCount": 2,
+    "createdAt": "2024-06-01T10:00:00Z"
+  },
+  {
+    "articleId": 16,
+    "title": "Real article",
+    "text": "Real text for real article",
+    "currentLikes": 11,
+    "commentsCount": 1,
+    "createdAt": "2025-05-07T10:00:00Z"
+  }
+]

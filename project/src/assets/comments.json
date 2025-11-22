@@ -1,0 +1,44 @@
+[
+  {
+    "author": "Sofa",
+    "articleId": 33,
+    "text": "Comment comment comment",
+    "createdAt": "2025-06-01T10:00:00Z",
+    "likes": 5
+  },
+  {
+    "author": "Ivan",
+    "articleId": 5,
+    "text": "Random text from Ivan",
+    "createdAt": "2025-06-02T14:23:12Z",
+    "likes": 1
+  },
+  {
+    "author": "Oleg",
+    "articleId": 5,
+    "text": "Long text long text long text long text long text long text",
+    "createdAt": "2025-06-03T08:45:30Z",
+    "likes": 3
+  },
+  {
+    "author": "Roman",
+    "articleId": 33,
+    "text": "Short text",
+    "createdAt": "2025-06-04T19:10:05Z",
+    "likes": 0
+  },
+  {
+    "author": "Bob",
+    "articleId": 16,
+    "text": "Short text from Bob",
+    "createdAt": "2025-06-05T12:00:00Z",
+    "likes": 2
+  },
+  {
+    "author": "Roman",
+    "articleId": 11,
+    "text": "Short text from Frank + random random random",
+    "createdAt": "2025-06-06T09:35:42Z",
+    "likes": 4
+  }
+]
