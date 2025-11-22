@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 
 import { getArticles } from "./helpers/get-articles";
 import { ActionTypes } from "./store/constants";
@@ -39,7 +39,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:articleId" element={<ArticlePage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </div>
   );
